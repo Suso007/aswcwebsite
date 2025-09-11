@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico, Inter, Poppins } from "next/font/google";
 import ClientWrapper from "./components/ClientWrapper";
 import "./globals.css";
+import MouseTrailsClient from "./components/MouseTrailsClient";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
         className={`${inter.variable} ${poppins.variable} ${pacifico.variable} font-inter antialiased`}
       >
         <ClientWrapper>
+            <MouseTrailsClient />
           {children}
         </ClientWrapper>
       </body>

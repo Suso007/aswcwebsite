@@ -14,7 +14,7 @@ export default function ClientWrapper({ children }: { children: React.ReactNode 
     const timer = setTimeout(() => {
       setIsLoading(false);
       document.body.style.overflow = 'unset';
-    }, 3000);
+    }, 4000);
 
     return () => {
       clearTimeout(timer);

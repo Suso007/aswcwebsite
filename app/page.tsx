@@ -10,7 +10,6 @@ import HowItWorksSection from './components/HowItWorksSection';
 export default async function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-amber-50 to-teal-50 relative overflow-x-hidden">
-      <MouseTrailsClient />
       <Header />
       <div id="hero">
         <HeroSection />
