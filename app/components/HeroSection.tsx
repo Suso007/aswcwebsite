@@ -29,7 +29,7 @@ export default function HeroSection() {
         <div 
           className="w-full h-full bg-cover bg-center bg-no-repeat parallax-element"
           style={{
-            backgroundImage: "/images/FRONT.jpg",
+            backgroundImage: `url(/images/FRONT.JPG)`,
             transform: `translateY(${scrollY * 0.5}px)`
           }}
         >
