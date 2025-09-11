@@ -1,0 +1,167 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Category {
+  id          Int       @id @default(autoincrement())
+  title       String
+  description String
+  icon        String
+  image       String
+  products    Product[]
+}
+
+model Product {
+  id            Int            @id @default(autoincrement())
+  name          String
+  price         Float
+  originalPrice Float?
+  description   String
+  image         String    @default("/assets/default.png") 
+  images        ProductImage[]
+  tags          String[]
+  featured      Boolean        @default(false)
+  badges        String?
+  bestseller    Boolean        @default(false)
+  rating        Int?
+  size          String?
+  categoryId    Int?
+  createdAt     DateTime       @default(now())
+  type          String         @default("classic")
+  category      Category?      @relation(fields: [categoryId], references: [id])
+}
+
+model ProductImage {
+  id        Int      @id @default(autoincrement())
+  url       String
+  product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId Int
+  createdAt DateTime @default(now())
+}
+
+model PageHero {
+  id              Int    @id @default(autoincrement())
+  slug            String @unique
+  backgroundImage String
+}
+
+model Service {
+  id          Int     @id @default(autoincrement())
+  title       String
+  description String
+  icon        String
+  image       String
+  features    String
+  price       Float?
+  duration    String?
+  category    String
+
+  @@map("service")
+}
+
+model AttendanceSolution {
+  id          Int    @id @default(autoincrement())
+  title       String
+  description String
+  icon        String
+  features    String
+  pricing     String
+  image       String
+}
+
+model Milestone {
+  id          Int    @id @default(autoincrement())
+  year        String
+  title       String
+  description String
+  icon        String
+}
+
+model HowItWorksStep {
+  id          Int    @id @default(autoincrement())
+  icon        String
+  title       String
+  description String
+  image       String
+  order       Int?
+}
+
+model ContactMessage {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String
+  phone     String?
+  subject   String
+  message   String
+  createdAt DateTime @default(now())
+}
+
+model ServiceFormMessage {
+  id          Int      @id @default(autoincrement())
+  name        String
+  email       String
+  phone       String?
+  productType String
+  modelNo     String?
+  message     String
+  createdAt   DateTime @default(now())
+}
+
+model Testimonial {
+  id          Int      @id @default(autoincrement())
+  name        String
+  position    String
+  company     String
+  testimonial String
+  image       String
+  rating      Int
+  createdAt   DateTime @default(now())
+}
+
+model Subscribers {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}
+
+model TeamMember {
+  id         Int      @id @default(autoincrement())
+  name       String
+  position   String
+  experience String
+  image      String
+  bio        String
+  linkedin   String? // optional
+  email      String? // optional
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Order {
+  id           Int      @id @default(autoincrement())
+  name         String
+  email        String
+  phone        String
+  company      String? // optional
+  product      String
+  quantity     String
+  installation String? // optional
+  message      String?
+  createdAt    DateTime @default(now())
+}
+
+model WatchTestimonial {
+  id          Int      @id @default(autoincrement())
+  name        String
+  position    String
+  testimonial String
+  image       String
+  rating      Int
+  watch       String
+  createdAt   DateTime @default(now())
+}
