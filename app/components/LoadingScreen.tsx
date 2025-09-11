@@ -215,7 +215,7 @@ const LoadingScreen = () => {
           {/* Loading Text */}
           <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap">
             <p className="text-teal-400 text-sm font-medium animate-pulse">
-              Setting Time...
+             Loading...
             </p>
           </div>
         </div>
