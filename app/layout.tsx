@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Pacifico, Inter, Poppins } from "next/font/google";
+import ClientWrapper from "./components/ClientWrapper";
 import "./globals.css";
-<link
-  href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
-  rel="stylesheet"
-></link>;
 
 const inter = Inter({
   subsets: ["latin"],
@@ -51,17 +48,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <head>
-        {/*<link 
-          href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" 
-          rel="stylesheet" 
-        />*/}
-      </head>
-
       <body
         className={`${inter.variable} ${poppins.variable} ${pacifico.variable} font-inter antialiased`}
       >
-        {children}
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
       </body>
     </html>
   );

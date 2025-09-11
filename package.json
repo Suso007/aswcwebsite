@@ -9,6 +9,7 @@
     "postinstall": "prisma generate"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.16.1",
     "@react-google-maps/api": "^2.19.3",
     "dotenv": "^17.2.1",
     "file-saver": "^2.0.5",
