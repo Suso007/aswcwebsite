@@ -27,7 +27,7 @@ export default function ServicesHero() {
         <div className="text-center">
           <div className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <h1 className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-              Time & Attendance
+              Watch Services & Time Attendance
               <span className="block text-amber-300 font-pacifico text-4xl lg:text-6xl mt-2">
                 Solutions
               </span>
